@@ -5,7 +5,11 @@
 <section class="section-group" *ngFor="let item of items; let i = index">
   <div class="section-header">
     <h2>Section {{ i + 1 }}</h2>
-    <button type="button" (click)="deleteSection(i)" [disabled]="isDisabled">
+    <button
+      type="button"
+      (click)="deleteSection(i)"
+      [disabled]="items.length === 1"
+    >
       Delete Section
     </button>
   </div>

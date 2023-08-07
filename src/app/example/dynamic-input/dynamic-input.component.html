@@ -10,7 +10,11 @@
         [value]="item.value"
         (change)="onChange(i, elem.valueAsNumber)"
       />
-      <button type="button" (click)="deleteInput(i)" [disabled]="isDisabled">
+      <button
+        type="button"
+        (click)="deleteInput(i)"
+        [disabled]="items.length === 1"
+      >
         Delete
       </button>
     </div>
