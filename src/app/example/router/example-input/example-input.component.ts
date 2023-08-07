@@ -14,15 +14,7 @@ import { SectionData } from '../../types';
 export class ExampleInputComponent {
   protected readonly dataService = inject(ExampleDataService);
 
-  protected data: SectionData | null = null;
-
-  constructor() {
-    this.dataService.getData().then((sectionData) => (this.data = sectionData));
-
-    (async () => {
-      this.data = await this.dataService.getData();
-    })();
-  }
+  protected data$ = this.dataService.getData();
 
   async onDataChange(sectionData: SectionData): Promise<void> {
     console.debug(sectionData);
